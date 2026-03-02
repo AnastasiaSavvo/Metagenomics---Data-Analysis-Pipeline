@@ -7,7 +7,7 @@ module spider sra
 module load gcc/14.2.0
 module load sra-tools/3.0.3
 nano list.txt
-while read SRR; do  prefetch $SRR;  fasterq-dump $SRR --split-files; done < list.tx
+while read SRR; do  prefetch $SRR;  fasterq-dump $SRR --split-files; done < list.txt
 module load gcc/14.2.0 fastqc/0.12.1
 fastqc SRR8397893_1.fastq
 fastqc SRR8397897_1.fastq
@@ -16,9 +16,9 @@ fastqc SRR8397897_1.fastq
 After the QC, I use trimmomatic to trim the adapters and low-quality reads.
 ```bash
 module load gcc/9.4.0-eewq4j6 trimmomatic/0.39-dlgljoz
-for sample in *_1.fastq.gz
+for sample in *_1.fastq
 do
-    base=$(basename $sample _1.fastq.gz)
+    base=$(basename $sample _1.fastq)
 
     trimmomatic PE -threads 4 -phred33 \
         ${base}_1.fastq ${base}_2.fastq \
