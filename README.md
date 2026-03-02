@@ -12,6 +12,7 @@ fastqc SRR8397893_1.fastq
 fastqc SRR8397897_1.fastq
 ```
 ## 2. Trimming 
+After the QC, I use trimmomatic to trim the adapters and low-quality reads.
 ```bash
 module load gcc/9.4.0-eewq4j6 trimmomatic/0.39-dlgljoz
 for sample in *_1.fastq.gz
@@ -27,6 +28,7 @@ do
 done
 ```
 ## 3. Assembly of the data into contigs
+I use metaspades to assemble the reads into contigs.
 ```bash 
 module load spades/4.0.0
 for sample in SRR8397893 SRR8397897
