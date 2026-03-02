@@ -1,6 +1,7 @@
 # Metagenomics-Data-Analysis-Pipeline 
+To create this pipeline I used some of the data of a published paper: Comparative metagenomic and metatranscriptomic analyses reveal the breed effect on the rumen microbiome and its associations with feed efficiency in beef cattle. I used the SRA run selector to find all the data with their accession numbers and for the sake of the excercise I used 2 of them.
 ## 1. Downoalding and preprocessing the data
-First I chose 2 SRR accession numbers and downloaded them with the help of sratoollkit. Then I made a txt file to use it in the loops in the downstream analysis. Also, in this step I do the quality control with fastqc
+Download the accession numbers (SRR) with the help of sratoollkit. Then make a txt file to use it in the loops in the downstream analysis. Also, in this step I do the quality control with fastqc.
 ```bash
 module spider sra
 module load gcc/14.2.0
